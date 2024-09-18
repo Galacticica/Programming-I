@@ -25,15 +25,18 @@ fotd_flavors = ["Mint", "Lemon", "OREO", "Orange", "Caramel", "Coffee", "Smore",
 menu = tkinter.Tk()
 menu.title= "Generic Dessert Store" #why doesn't this line work?
 
-#background task that changes a flavor every 10 seconds
 def random_flavor():
+    '''background task that changes a flavor every 10 seconds'''
     while True:
         new_flavor = random.choice(fotd_flavors)
         icecream_flavors[3] = new_flavor
         time.sleep(10)
 
-#gets all grid widgets
 def get_grid_wigets(parent):
+    '''gets all grid widgets
+
+    Keyword Arguments
+    parent -- the overall gui being edited... should be menu'''
     widgets = []
     for child in parent.winfo_children():
         if child.grid_info():
@@ -42,8 +45,8 @@ def get_grid_wigets(parent):
         widgets.pop(0)
     return widgets
 
-#updates the gui for the main menu
 def main_menu():
+    '''clears the current gui and then updates to the "homescreen" with buttons to go to the other menus or complete the order'''
     widgets = get_grid_wigets(menu)
     for widget in widgets:
         widget.grid_forget()
@@ -66,8 +69,12 @@ def main_menu():
     complete_order = tkinter.Button(menu, text="Complete Order", width=15, height=2, font=('Helvetica bold',15), borderwidth=1, relief="groove", state=NORMAL, command=additional_comments)
     complete_order.grid(row=10, column=1, columnspan=1)
 
-#shows that an item was added to the order
 def add_item(item):
+    '''shows that an item was added to the order and appends item to ordered items
+    
+    Keyword Arguments
+        item -- the item to be added to the ordered_items list
+    '''
     ordered_items.append(tkinter.Label(menu, text=item, width=15, height=1, font=('Helvetica bold',13), borderwidth=0.2, relief="solid"))
     widgets = get_grid_wigets(menu)
     for widget in widgets:
@@ -76,8 +83,8 @@ def add_item(item):
     added_item.grid(row=2, column=1, columnspan=1)
     menu.after(1000, main_menu)
 
-#creates the gui for the coffee menu
 def coffee_menu():
+    '''creates the gui for the coffee menu with buttons to order items'''
     widgets = get_grid_wigets(menu)
     for widget in widgets:
         widget.grid_forget()
@@ -90,8 +97,8 @@ def coffee_menu():
     back_button = tkinter.Button(menu, text=f"\u2190", width=3, height=1, font=('Helvetica bold',20), borderwidth=0, relief="groove", state=NORMAL, command=main_menu)
     back_button.grid(row=8, column=1, columnspan=1)
 
-#creates the gui for the icecream menu
 def icecream_menu():
+    '''creates the gui for the icecream menu with buttons to order items'''
     widgets = get_grid_wigets(menu)
     for widget in widgets:
         widget.grid_forget()
@@ -105,8 +112,11 @@ def icecream_menu():
     back_button.grid(row=8, column=1, columnspan=1)
     
     
-#creates the gui for choosing the flavor of the icecream
 def flavor_select(item):
+    '''creates the gui for the icecream flavor menu with buttons to choose a flavor
+    
+    Keyword Arguments
+    item -- the type of icecream item being ordered'''
     widgets = get_grid_wigets(menu)
     for widget in widgets:
         widget.grid_forget()
@@ -122,8 +132,8 @@ def flavor_select(item):
     back_button = tkinter.Button(menu, text=f"\u2190", width=3, height=1, font=('Helvetica bold',20), borderwidth=0, relief="groove", state=NORMAL, command=icecream_menu)
     back_button.grid(row=10, column=1, columnspan=1)
 
-#creates the gui for the dessert menu
 def dessert_menu():
+    '''creates the gui for the dessert menu with buttons to order items'''
     widgets = get_grid_wigets(menu)
     for widget in widgets:
         widget.grid_forget()
@@ -136,8 +146,8 @@ def dessert_menu():
     back_button = tkinter.Button(menu, text=f"\u2190", width=3, height=1, font=('Helvetica bold',20), borderwidth=0, relief="groove", state=NORMAL, command=main_menu)
     back_button.grid(row=8, column=1, columnspan=1)
 
-#allows the user to add any additional comments EX: Oat Milk
 def additional_comments():
+    '''runs when user completes order, allowing them to enter short additional comments EX: Oat Milk'''
     widgets = get_grid_wigets(menu)
     for widget in widgets:
         widget.grid_forget()
@@ -151,6 +161,7 @@ def additional_comments():
     characters_left.grid(row=2, column=2)
 
     def add_comment(event):
+        '''a function that adds the comment to the list of comments; if the comment = "no" then it displays the final order'''
         new_comment = comment_box.get()
         if new_comment.lower() == "no":
             display_receipt(comments)
@@ -161,6 +172,7 @@ def additional_comments():
             comment_box.delete(0, 'end')
 
     def limit_characters(event):
+        '''function to limit comment character count to 15'''
         characters_left.config(text=character_limit - len(comment_box.get()))
         content = comment_box.get()
         if len(content) > character_limit:
@@ -169,8 +181,11 @@ def additional_comments():
     comment_box.bind('<Return>', add_comment)
     comment_box.bind('<KeyRelease>', limit_characters)
     
-#Displays the final order along with all comments
 def display_receipt(comments):
+    '''displays the final order with all items ordered and all additional comments
+    
+    Keyword Arguments
+    comments -- passes in the list of comments defined in the additional_comments function'''
     widgets = get_grid_wigets(menu)
     for widget in widgets:
         widget.grid_forget()

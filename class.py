@@ -1,5 +1,6 @@
 import statistics
 nums = []
+average = None
 
 while True:
     num = input()
@@ -7,4 +8,7 @@ while True:
         break
     nums.append(int(num))
 
-print(statistics.mean(nums))
+if len(nums) == 0:
+    pass
+else:
+    print(statistics.mean(nums))
