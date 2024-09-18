@@ -33,10 +33,11 @@ def random_flavor():
         time.sleep(10)
 
 def get_grid_wigets(parent):
-    '''gets all grid widgets
-
-    Keyword Arguments
-    parent -- the overall gui being edited... should be menu'''
+    '''
+    gets all grid widgets
+    :param parent: the overall gui being edited... should be menu
+    :return widgets: all the current widgets being displayed on the parent gui
+    '''
     widgets = []
     for child in parent.winfo_children():
         if child.grid_info():
@@ -70,10 +71,9 @@ def main_menu():
     complete_order.grid(row=10, column=1, columnspan=1)
 
 def add_item(item):
-    '''shows that an item was added to the order and appends item to ordered items
-    
-    Keyword Arguments
-        item -- the item to be added to the ordered_items list
+    '''
+    shows that an item was added to the order and appends item to ordered items
+    :param item: the item to be added to the ordered_items list
     '''
     ordered_items.append(tkinter.Label(menu, text=item, width=15, height=1, font=('Helvetica bold',13), borderwidth=0.2, relief="solid"))
     widgets = get_grid_wigets(menu)
@@ -113,10 +113,10 @@ def icecream_menu():
     
     
 def flavor_select(item):
-    '''creates the gui for the icecream flavor menu with buttons to choose a flavor
-    
-    Keyword Arguments
-    item -- the type of icecream item being ordered'''
+    '''
+    creates the gui for the icecream flavor menu with buttons to choose a flavor
+    :param item: the type of icecream item being ordered
+    '''
     widgets = get_grid_wigets(menu)
     for widget in widgets:
         widget.grid_forget()
@@ -182,10 +182,9 @@ def additional_comments():
     comment_box.bind('<KeyRelease>', limit_characters)
     
 def display_receipt(comments):
-    '''displays the final order with all items ordered and all additional comments
-    
-    Keyword Arguments
-    comments -- passes in the list of comments defined in the additional_comments function'''
+    '''
+    displays the final order with all items ordered and all additional comments
+    :param comments: passes in the list of comments defined in the additional_comments function'''
     widgets = get_grid_wigets(menu)
     for widget in widgets:
         widget.grid_forget()
