@@ -1,0 +1,20 @@
+Write a Menu-Driven Program in python. Build and submit the program in zyBooks. Note that the program will not be auto-graded. See the rubric below.
+
+Assignment Requirements:
+
+The program must use a while loop to repeat the program until the user quits.
+The program must use if statements to execute blocks of code based on the user's selection.
+The program must have at least 3 options on the menu.
+Ideas for the Menu Options:
+
+Restaurant Menu Options. Ex: Option = Hamburger for $5.
+Convert between currencies. Ex: Option = Convert US $ to Canadian $.
+A calculator for trigonometry functions. Ex: Option = Calculate Cosine of an Angle.
+The above ideas could all satisfy the assignments requirements. Students are strongly encouraged to think outside the box and challenge themselves to build something interesting.
+
+Grading Rubric:
+
+Satisfies Requirements: 10 points. Does the program satisfy all the assignment requirements?
+Program Usability: 10 points. Is the program easy and intuitive to use? Is the program output formatted well?
+Documentation: 10 points. Does the program file have a header and comments as needed?
+Well-Written: 10 points. Is the program file well structured and easy to understand? Are naming conventions followed?
