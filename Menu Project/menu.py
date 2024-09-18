@@ -12,7 +12,6 @@ from tkinter import *
 import time
 import threading
 import random
-import gui
 
 #declare variables
 coffee_items = ["Mocha", "Latte", "Espresso"]
@@ -107,13 +106,14 @@ def flavor_select(item):
     widgets = get_grid_wigets(menu)
     for widget in widgets:
         widget.grid_forget()
+    current_fotd = icecream_flavors[3]
     option1 = tkinter.Button(menu, text=f"{icecream_flavors[0]}", width=15, height=2, font=('Helvetica bold',15), borderwidth=1, relief="groove", state=NORMAL, command=lambda:add_item(icecream_flavors[0] + " " + item))
     option1.grid(row=2, column=1, columnspan=1)
     option2 = tkinter.Button(menu, text=f"{icecream_flavors[1]}", width=15, height=2, font=('Helvetica bold',15), borderwidth=1, relief="groove", state=NORMAL, command=lambda:add_item(icecream_flavors[1] + " " + item))
     option2.grid(row=4, column=1, columnspan=1)
     option3 = tkinter.Button(menu, text=f"{icecream_flavors[2]}", width=15, height=2, font=('Helvetica bold',15), borderwidth=1, relief="groove", state=NORMAL, command=lambda:add_item(icecream_flavors[2] + " " + item))
     option3.grid(row=6, column=1, columnspan=1)
-    option4 = tkinter.Button(menu, text=f"{icecream_flavors[3]}", width=15, height=2, font=('Helvetica bold',15), borderwidth=1, relief="groove", state=NORMAL, command=lambda:add_item(icecream_flavors[3] + " " + item))
+    option4 = tkinter.Button(menu, text=f"{icecream_flavors[3]}", width=15, height=2, font=('Helvetica bold',15), borderwidth=1, relief="groove", state=NORMAL, command=lambda:add_item(current_fotd + " " + item))
     option4.grid(row=8, column=1, columnspan=1)
 
 #creates the gui for the dessert menu
@@ -133,10 +133,10 @@ def additional_comments():
     widgets = get_grid_wigets(menu)
     for widget in widgets:
         widget.grid_forget()
-    comment_box = tkinter.Entry(menu, text="Any additional comments? (Type no when finished)", width=15, font=('Helvetica bold',15), borderwidth=1, relief="solid")
+    question_text = tkinter.Label(menu, text="Any additional comments? (Type no when finished)", width=37, height=1, font=('Helvetica bold',10), borderwidth=1, relief="solid")
+    question_text.grid(row=1, column=0, columnspan=3)
+    comment_box = tkinter.Entry(menu, width=20, font=('Helvetica bold',12), borderwidth=1, relief="solid")
     comment_box.grid(row=2, column=0, columnspan=3)
-    spacer1 = tkinter.Label(menu, text="")
-    spacer1.grid(row=1)
     comments = []
     character_limit = 15
     characters_left = tkinter.Label(menu, text=character_limit, width=2, height=2, font=('Helvetica bold',10), borderwidth=0.2, relief="solid")
