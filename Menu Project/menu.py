@@ -87,6 +87,8 @@ def coffee_menu():
     option2.grid(row=4, column=1, columnspan=1)
     option3 = tkinter.Button(menu, text=f"{coffee_items[2]}", width=15, height=2, font=('Helvetica bold',15), borderwidth=1, relief="groove", state=NORMAL, command=lambda:add_item(coffee_items[2]))
     option3.grid(row=6, column=1, columnspan=1)
+    back_button = tkinter.Button(menu, text=f"\u2190", width=3, height=1, font=('Helvetica bold',20), borderwidth=0, relief="groove", state=NORMAL, command=main_menu)
+    back_button.grid(row=8, column=1, columnspan=1)
 
 #creates the gui for the icecream menu
 def icecream_menu():
@@ -99,6 +101,8 @@ def icecream_menu():
     option2.grid(row=4, column=1, columnspan=1)
     option3 = tkinter.Button(menu, text=f"{icecream_items[2]}", width=15, height=2, font=('Helvetica bold',15), borderwidth=1, relief="groove", state=NORMAL, command=lambda:flavor_select(icecream_items[2]))
     option3.grid(row=6, column=1, columnspan=1)
+    back_button = tkinter.Button(menu, text=f"\u2190", width=3, height=1, font=('Helvetica bold',20), borderwidth=0, relief="groove", state=NORMAL, command=main_menu)
+    back_button.grid(row=8, column=1, columnspan=1)
     
     
 #creates the gui for choosing the flavor of the icecream
@@ -115,6 +119,8 @@ def flavor_select(item):
     option3.grid(row=6, column=1, columnspan=1)
     option4 = tkinter.Button(menu, text=f"{icecream_flavors[3]}", width=15, height=2, font=('Helvetica bold',15), borderwidth=1, relief="groove", state=NORMAL, command=lambda:add_item(current_fotd + " " + item))
     option4.grid(row=8, column=1, columnspan=1)
+    back_button = tkinter.Button(menu, text=f"\u2190", width=3, height=1, font=('Helvetica bold',20), borderwidth=0, relief="groove", state=NORMAL, command=icecream_menu)
+    back_button.grid(row=10, column=1, columnspan=1)
 
 #creates the gui for the dessert menu
 def dessert_menu():
@@ -127,6 +133,8 @@ def dessert_menu():
     option2.grid(row=4, column=1, columnspan=1)
     option3 = tkinter.Button(menu, text=f"{dessert_items[2]}", width=15, height=2, font=('Helvetica bold',15), borderwidth=1, relief="groove", state=NORMAL, command=lambda:add_item(dessert_items[2]))
     option3.grid(row=6, column=1, columnspan=1)
+    back_button = tkinter.Button(menu, text=f"\u2190", width=3, height=1, font=('Helvetica bold',20), borderwidth=0, relief="groove", state=NORMAL, command=main_menu)
+    back_button.grid(row=8, column=1, columnspan=1)
 
 #allows the user to add any additional comments EX: Oat Milk
 def additional_comments():
