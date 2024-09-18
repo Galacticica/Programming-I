@@ -12,6 +12,7 @@ from tkinter import *
 import time
 import threading
 import random
+import gui
 
 #declare variables
 coffee_items = ["Mocha", "Latte", "Espresso"]
