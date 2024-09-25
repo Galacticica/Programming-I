@@ -2,8 +2,10 @@
 File: menu.py
 Author: Reagan Zierke
 Date: 9/18/2024
-Description: This program creates a menu for a dessert company 
-and allows the user to create an order
+
+Description: 
+This program creates a menu for a dessert company 
+and allows the user to create an order, add comments to the order, and view the final order
 '''
 
 
@@ -21,9 +23,9 @@ dessert_items = ["Cookie", "Pie Slice", "Brownie"]
 ordered_items = []
 fotd_flavors = ["Mint", "Lemon", "OREO", "Orange", "Caramel", "Coffee", "Smore", "Pineapple", "Cherry", "Banana", "Cake", "Grape", "Pumpkin", "Watermelon", "Mystery"]
 
-#create the menu gui
+#create the tkinter menu gui
 menu = tkinter.Tk()
-menu.title= "Generic Dessert Store" #why doesn't this line work?
+menu.title("Generic Dessert Store") 
 
 def random_flavor():
     '''background task that changes a flavor every 10 seconds'''
